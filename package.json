@@ -1,0 +1,22 @@
+{
+  "name": "github_api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/ArjavJ123/Teleparty-github-api.git"
+  },
+  "author": "Arjav Jain",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ArjavJ123/Teleparty-github-api/issues"
+  },
+  "homepage": "https://github.com/ArjavJ123/Teleparty-github-api#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
