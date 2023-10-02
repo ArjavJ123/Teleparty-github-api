@@ -9,15 +9,47 @@
 <body>
 
 <div class="search-container">
-    <input type="text" class="search-box" placeholder="Search..." onkeyup="searchUsers()">
+    <input type="text" class="search-box" placeholder="Search..." >
 </div>
 
 <div class="results">
     <h2>Search Results:</h2>
     <ul id="results-list"></ul>
 </div>
+<script type="module">
+    import { Octokit, App } from "https://esm.sh/octokit";
+    const octokit = new Octokit({
+        auth: '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'
+      });
+    
+        var input = document.querySelector('.search-box');
+        input.addEventListener("input",() => {
+            if (input.value.length >= 3) {
+            octokit.request('GET /search/users', {
+                headers: {
+                    'X-GitHub-Api-Version': '2022-11-28'
+                },
+                q: input.value + ' in:login',
+                sort: 'followers',
+                order: 'desc'
+            })
+            .then(response => displayResults(response.data.items))
+            .catch(error => console.error('Error:', error));
+        }
+        })
+        
+    
+    function displayResults(users) {
+        var resultsContainer = document.getElementById('results-list');
+        resultsContainer.innerHTML = '';
+        users.forEach(user => {
+            var listItem = document.createElement('li');
+            listItem.innerHTML = `<a href="${user.html_url}" target="_blank">${user.login}</a> `;
+            resultsContainer.appendChild(listItem);
+        });
+    }
+</script> 
 
-<script type="module" src="script.js"></script> 
 
 </body>
 </html>
