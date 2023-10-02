@@ -1,4 +1,5 @@
 import { Octokit, App } from "https://esm.sh/octokit?dts";
+require('dotenv').config();
 
 const octokit = new Octokit({
     auth: process.env.PUBLIC_TOKEN
