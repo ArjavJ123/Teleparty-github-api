@@ -16,10 +16,13 @@
     <h2>Search Results:</h2>
     <ul id="results-list"></ul>
 </div>
+<script src="env.js"></script>
+
 <script type="module">
     import { Octokit, App } from "https://esm.sh/octokit";
+
     const octokit = new Octokit({
-        auth: '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'
+        auth: window.env.PUBLIC_TOKEN
       });
     
         var input = document.querySelector('.search-box');
