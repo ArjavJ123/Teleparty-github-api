@@ -1,3 +1,3 @@
 window.env = {
-    PUBLIC_TOKEN:'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'
+    PUBLIC_TOKEN:'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'
   };
